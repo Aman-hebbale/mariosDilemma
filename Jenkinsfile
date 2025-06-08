@@ -58,7 +58,7 @@ pipeline {
         }
         success {
             echo 'ETL Pipeline completed successfully!'
-            archiveArtifacts artifacts: 'raw_posts.json', fingerprint: true
+            archiveArtifacts artifacts: 'jsonData/raw_posts.json', fingerprint: true
         }
         failure {
             echo 'ETL Pipeline failed! Check logs for details.'
