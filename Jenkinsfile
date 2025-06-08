@@ -52,16 +52,18 @@ pipeline {
     }
 
     post {
-        always {
-            // Clean up workspace after build
-            deleteDir()
-        }
+        // always {
+        //     // Clean up workspace after build
+        //     deleteDir()
+        // }
         success {
             echo 'ETL Pipeline completed successfully!'
             archiveArtifacts artifacts: 'jsonData/raw_posts.json', fingerprint: true
+            deleteDir()
         }
         failure {
             echo 'ETL Pipeline failed! Check logs for details.'
+            deleteDir()
             // Optional: Email notification on failure
             // mail to: 'your_email@example.com',
             //      subject: "Jenkins ETL Pipeline Failed: ${env.JOB_NAME} Build ${env.BUILD_NUMBER}",
