@@ -32,7 +32,7 @@ try:
     # Convert DataFrame to a list of dictionaries (suitable for JSON output)
     transformed_data = df_transformed.to_dict(orient='records')
 
-    with open(f"./jsonData/{RAW_DATA_FILE}", 'w') as f:
+    with open(f"./jsonData/{TRANSFORMED_DATA_FILE}", 'w') as f:
         json.dump(transformed_data, f, indent=4)
 
     print(f"Successfully transformed data and saved to {TRANSFORMED_DATA_FILE}")
