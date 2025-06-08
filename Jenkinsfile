@@ -17,7 +17,7 @@ pipeline {
                 script {
                     echo '--- Running Extract Stage ---'
                     // Execute the Python extract script
-                    sh 'python extract.py'
+                    sh 'python3 extract.py'
                     echo 'Extract stage completed.'
                 }
             }
