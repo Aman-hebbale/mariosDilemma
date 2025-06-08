@@ -15,6 +15,7 @@ pipeline {
         stage('Extract Data') {
             steps {
                 script {
+                    sh "mkdir jsonData"
                     echo '--- Running Extract Stage ---'
                     // Execute the Python extract script
                     sh 'python3 extract.py'
