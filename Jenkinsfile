@@ -24,31 +24,31 @@ pipeline {
             }
         }
 
-        // stage('Transform Data') {
-        //     steps {
-        //         script {
-        //             echo '--- Running Transform Stage ---'
-        //             // Execute the Python transform script
-        //             sh 'python3 scripts/transform.py'
-        //             echo 'Transform stage completed.'
-        //         }
-        //     }
-        // }
+        stage('Transform Data') {
+            steps {
+                script {
+                    echo '--- Running Transform Stage ---'
+                    // Execute the Python transform script
+                    sh 'python3 transform.py'
+                    echo 'Transform stage completed.'
+                }
+            }
+        }
 
-        // stage('Load Data') {
-        //     steps {
-        //         script {
-        //             echo '--- Running Load Stage ---'
-        //             // Execute the Python load script
-        //             sh 'python3 scripts/load.py'
-        //             echo 'Load stage completed.'
+        stage('Load Data') {
+            steps {
+                script {
+                    echo '--- Running Load Stage ---'
+                    // Execute the Python load script
+                    sh 'python3 load.py'
+                    echo 'Load stage completed.'
 
-        //             // Optional: Print the first few lines of the final output for verification
-        //             sh 'echo "Final loaded data (first 20 lines):"'
-        //             sh 'head -n 20 final_api_data.json || true' // `|| true` to prevent build failure if file not found
-        //         }
-        //     }
-        // }
+                    // Optional: Print the first few lines of the final output for verification
+                    sh 'echo "Final loaded data (first 20 lines):"'
+                    sh 'head -n 20 ./jsonData/final_api_data.json || true' // `|| true` to prevent build failure if file not found
+                }
+            }
+        }
     }
 
     post {
